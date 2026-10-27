@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; img-src 'self'; connect-src https://vlfsmeejyjdmhputnfnh.supabase.co; form-action 'none'; base-uri 'none'"
+    />
+    <meta name="robots" content="noindex" />
+    <title>Elfy · Autoriser l’accès</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"
+      integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="../consent.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>Elfy</h1>
+
+      <p id="status" class="secondary">Chargement…</p>
+
+      <form id="login" hidden>
+        <p class="secondary">Connecte-toi avec le compte Supabase d’Elfy pour continuer.</p>
+        <input id="email" type="email" autocomplete="email" placeholder="Adresse e-mail" required />
+        <input id="password" type="password" autocomplete="current-password" placeholder="Mot de passe" required />
+        <button type="submit" class="primary">Se connecter</button>
+      </form>
+
+      <section id="consent" hidden>
+        <h2><span id="client"></span> demande l’accès à ton carnet</h2>
+        <div class="group">
+          <div class="row"><span class="label">Compte</span><span id="user"></span></div>
+          <div class="row"><span class="label">Retour vers</span><span id="redirect"></span></div>
+          <div class="row" id="scopes-row" hidden><span class="label">Droits</span><span id="scopes"></span></div>
+        </div>
+        <p class="secondary">
+          Il pourra lire et modifier ton journal (repas, sport, asthme, poids) jusqu’à ce que tu révoques l’accès.
+        </p>
+        <button id="approve" class="primary">Autoriser</button>
+        <button id="deny" class="secondary-button">Refuser</button>
+        <button id="signout" class="text">Ce n’est pas moi : se déconnecter</button>
+      </section>
+    </main>
+  </body>
+</html>
